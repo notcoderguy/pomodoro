@@ -17,6 +17,7 @@ RUN bun run build
 FROM oven/bun
 COPY ./package.json bun.lock /app/
 COPY --from=production-dependencies-env /app/node_modules /app/node_modules
-COPY --from=build-env /app/build /app/build
+COPY --from=build-env /app/build /app/
 WORKDIR /app
-CMD ["bun", "run", "start"]
+EXPOSE 3000
+ENTRYPOINT ["bun", "run", "start"]

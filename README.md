@@ -1,87 +1,59 @@
-# Welcome to React Router!
+# Pomodoro Todo Application
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+A productivity application combining Pomodoro timer functionality with task management.
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- Pomodoro timer with configurable work/break intervals
+- Task management system to track todos
+- Productivity statistics and history
+- Responsive design for all devices
 
-## Getting Started
+## Technology Stack
 
-### Installation
+- Frontend: React + Vite
+- Backend: Bun runtime
+- Styling: CSS Modules
+- Build: Vite
+- Package Manager: Bun
 
-Install the dependencies:
+## Installation
 
+1. Clone the repository
+2. Install dependencies:
 ```bash
-npm install
+bun install
 ```
 
-### Development
-
-Start the development server with HMR:
-
+3. Start development server:
 ```bash
-npm run dev
+bun run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
+4. Build for production:
 ```bash
-npm run build
+bun run build
 ```
 
-## Deployment
+## Configuration
 
-### Docker Deployment
+Environment variables:
+- `VITE_POMODORO_DURATION`: Work interval duration (default: 25)
+- `VITE_SHORT_BREAK_DURATION`: Short break duration (default: 5) 
+- `VITE_LONG_BREAK_DURATION`: Long break duration (default: 15)
 
-To build and run using Docker:
+## Usage
 
-```bash
-docker build -t my-app .
+1. Add tasks to your todo list
+2. Start the Pomodoro timer
+3. Work until the timer completes
+4. Take a short break (5 minutes)
+5. After 4 Pomodoros, take a longer break (15 minutes)
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
+## Contributing
 
-The containerized application can be deployed to any platform that supports Docker, including:
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
+## License
 
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+[MIT](https://choosealicense.com/licenses/mit/)
