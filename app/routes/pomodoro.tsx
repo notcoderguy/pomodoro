@@ -39,6 +39,14 @@ export default function Pomodoro() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen gap-4 relative">
+      <div className="absolute top-4 left-4 flex items-center gap-2">
+        <img 
+          src={theme === 'dark' ? '/pomogo-icon.svg' : '/pomogo-icon-dark.svg'} 
+          alt="Pomogo" 
+          className="w-6 h-6" 
+        />
+        <span className="text-2xl font-bold">Pomogo</span>
+      </div>
       <div className="absolute top-4 right-4 flex gap-2">
         <ThemeChanger theme={theme} setTheme={setTheme} />
         <Button
@@ -52,10 +60,7 @@ export default function Pomodoro() {
           </a>
         </Button>
       </div>
-      <h1 className="text-4xl font-bold">
-        {mode === 'work' ? 'Work Time' : 'Break Time'}
-      </h1>
-      <div className="text-6xl font-mono">
+      <div className="text-8xl font-mono">
         {`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}
       </div>
       <div className="flex gap-2">
