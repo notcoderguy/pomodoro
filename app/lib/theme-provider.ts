@@ -6,9 +6,9 @@ export function useTheme() {
 
   useEffect(() => {
     setIsMounted(true);
-    const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches 
-      ? 'dark' 
-      : 'light';
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+    const preferredTheme = savedTheme || 
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     setTheme(preferredTheme);
     document.documentElement.classList.toggle('dark', preferredTheme === 'dark');
   }, []);
@@ -16,6 +16,7 @@ export function useTheme() {
   useEffect(() => {
     if (isMounted) {
       document.documentElement.classList.toggle('dark', theme === 'dark');
+      localStorage.setItem('theme', theme);
     }
   }, [theme, isMounted]);
 
