@@ -1,31 +1,13 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Button } from '~/components/ui/button';
-import { Moon, Sun, Github } from 'lucide-react';
+import { Github } from 'lucide-react';
+import { useTheme } from '~/lib/theme-provider';
+import { ThemeChanger } from '~/lib/theme-changer';
 
 type TimerMode = 'work' | 'break';
 
 export default function Pomodoro() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-    const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches 
-      ? 'dark' 
-      : 'light';
-    setTheme(preferredTheme);
-    document.documentElement.classList.toggle('dark', preferredTheme === 'dark');
-  }, []);
-
-  useEffect(() => {
-    if (isMounted) {
-      document.documentElement.classList.toggle('dark', theme === 'dark');
-    }
-  }, [theme, isMounted]);
-
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
+  const { theme, setTheme } = useTheme();
   const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes in seconds
   const [isActive, setIsActive] = useState(false);
   const [mode, setMode] = useState<TimerMode>('work');
@@ -58,14 +40,7 @@ export default function Pomodoro() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen gap-4 relative">
       <div className="absolute top-4 right-4 flex gap-2">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={toggleTheme}
-          aria-label="Toggle theme"
-        >
-          {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
-        </Button>
+        <ThemeChanger theme={theme} setTheme={setTheme} />
         <Button
           variant="ghost"
           size="icon"
