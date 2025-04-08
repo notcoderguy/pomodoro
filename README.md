@@ -1,4 +1,4 @@
-# ARCHIVED: This project is moved to a private repository.
+# ARCHIVED: This project is moved to a private repository. Check the website for more details [https://pomogo.in](https://pomogo.in)
 
 # Pomodoro Todo Application
 
