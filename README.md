@@ -1,3 +1,5 @@
+# ARCHIVED: This project is moved to a private repository.
+
 # Pomodoro Todo Application
 
 A productivity application combining Pomodoro timer functionality with task management.
